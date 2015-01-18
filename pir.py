@@ -13,15 +13,11 @@ import os
 
 # Use BCM GPIO references instead of physical pin numbers
 GPIO.setmode(GPIO.BCM)
-
-# Define GPIO to use on Pi
-GPIO_PIR = 4  
-
-print "PIR Module Test (CTRL-C to exit)"
-
-# Set pin as input
+# Define GPIO to use on Pi and set pin as input
+GPIO_PIR = 4
 GPIO.setup(GPIO_PIR,GPIO.IN) # Echo 
 
+print "PIR Module Test (CTRL-C to exit)"
 Current_State = 0 
 Previous_State = 0 
 
@@ -68,5 +64,4 @@ try:
       
 except KeyboardInterrupt:
   print " Quit"
-  # Reset GPIO settings
   GPIO.cleanup()
