@@ -39,8 +39,7 @@ try:
     Current_State = GPIO.input(GPIO_PIR)
    
     if Current_State==1 and Previous_State==0:
-      # PIR is triggered
-      #print " Motion detected!"      
+      # PIR is triggered     
       cnt = 0
       while cnt < 2:
 		os.system("pilight-send -p intertechno_switch -i 13244170 -u 1 -t")
@@ -59,8 +58,7 @@ try:
       # Record previous state
       Previous_State=1
     elif Current_State==0 and Previous_State==1:
-      # PIR has returned to ready state
-      #print " Ready"      
+      # PIR has returned to ready state   
       os.system("pilight-send -p intertechno_switch -i 13244170 -u 1 -f")
       time.sleep(0.1) # sleep so that switching on will work again
       Previous_State=0
